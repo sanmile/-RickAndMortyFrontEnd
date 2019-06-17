@@ -1,4 +1,7 @@
-fetch("https://rickandmortyapi.com/api/character/1,12,3",{
+var num1 = Math.floor(Math.random() * 20);
+var num2 = Math.floor(Math.random() * 20);
+var num3 = Math.floor(Math.random() * 20);
+fetch("https://rickandmortyapi.com/api/character/"+num1+","+num2+","+num3,{
     method: "GET"
 }).then((value) =>{
     return value.json();
