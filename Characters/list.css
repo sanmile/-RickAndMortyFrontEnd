@@ -1,0 +1,8 @@
+.infinite-list {
+    /* We need to limit the height and show a scrollbar */   
+    height: 900px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .margin { margin:15px;}

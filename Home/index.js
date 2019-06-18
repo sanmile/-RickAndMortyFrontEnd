@@ -6,10 +6,10 @@ fetch("https://rickandmortyapi.com/api/character/"+num1+","+num2+","+num3,{
 }).then((value) =>{
     return value.json();
 }).then((value) => {
+    let listCharcter = document.getElementById("list-charcter");
     value.forEach(element => {
-        let div=document.createElement("div");
-        let listCharcter = document.getElementById("listCharcter");
-        div.className= "col-sm-4";
+        let div=document.createElement("div");        
+        div.className= "col-sm-2";
         listCharcter.appendChild(div);
         let charecterImg = document.createElement("img");
         charecterImg.src = element.image;
