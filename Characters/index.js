@@ -39,13 +39,10 @@ btnViewAll.addEventListener("click", function (event) {
     event.preventDefault();
     getListCharcter.classList.add('active');
     getHome.classList.remove('active');
-    // home.classList.add("hideDiv");
-    // listAll.classList.add("showDiv");
     home.style.display = "none";
     listAll.style.display = "";
     viewAll();
 });
-console.log(getHome.className);
 
 getHome.addEventListener("click", function () {
     event.preventDefault();
@@ -54,7 +51,6 @@ getHome.addEventListener("click", function () {
     home.style.display = "";
     listAll.style.display = "none";
     details.classList.add("hideDiv");
-    //defaultCharters();
 });
 
 getListCharcter.addEventListener("click", function () {
