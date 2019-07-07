@@ -1,5 +1,7 @@
 
-  
+  .backgroundDiv{
+    background: rgb(68, 68, 68);
+  }
   .topnav {
     overflow: hidden;
     background-color: #333;
@@ -16,12 +18,12 @@
   }
   
   .topnav a:hover {
-    background-color: #ddd;
+    background-color: #FAFAD2;
     color: black;
   }
   
   .topnav a.active {
-    background-color: blue;
+    background-color:#FFD700;
     color: white;
   }
   
@@ -69,7 +71,7 @@
   }
 
 .margin { 
-    margin:15px;
+    margin:40px;
 }
 
 .infinite-list { 
@@ -87,13 +89,26 @@
   }
 
   img {
-    padding: 20px 0px 0px 20px;
+    padding: 0px;
+    border: 1px solid yellow;
+    border-radius: 20px;
 }
 .text-details{
-    padding-top: 40px;
-    line-height: 6px;
+   color: white;
+   margin: 0px 50px;
 }
 
 a{
     cursor: pointer
+}
+
+.line{
+  padding-top: 5px;
+  border-top: 1px solid rgb(68, 68, 68);
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color:rgb(255, 152, 0);
+}
+p{
+  color:#ddd;
 }

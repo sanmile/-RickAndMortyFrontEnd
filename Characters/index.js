@@ -1,5 +1,3 @@
-
-
 let home = document.getElementById("home");
 let listAll = document.getElementById("list-charcter");
 let btnViewAll = document.getElementById("btn-view-all");
@@ -9,20 +7,41 @@ let details = document.getElementById("details");
 
 if (getHome.className == "active") defaultCharters();
 
+btnViewAll.addEventListener("click", function (event) {
+    event.preventDefault();
+    viewAll();
+});
+
+getHome.addEventListener("click", function () {
+    event.preventDefault();
+    getHome.classList.add('active');
+    getListCharcter.classList.remove('active');
+    home.classList.add("showDiv");
+    listAll.classList.add("hideDiv");
+    details.classList.add("hideDiv");
+    if (listAll.classList.contains("showDiv")) listAll.classList.remove("showDiv");
+    if (details.classList.contains("showDiv")) details.classList.remove("showDiv");
+    if (home.classList.contains("hideDiv")) home.classList.remove("hideDiv");
+});
+
+getListCharcter.addEventListener("click", function () {
+    event.preventDefault();
+    viewAll();
+});
 
 function defaultCharters() {
-    var num1 = Math.floor(Math.random() * 10);
-    var num2 = Math.floor(Math.random() * 10);
-    var num3 = Math.floor(Math.random() * 10);
+    var num1 = Math.floor(Math.random() * 90);
+    var num2 = Math.floor(Math.random() * 90);
+    var num3 = Math.floor(Math.random() * 90);
     fetch("https://rickandmortyapi.com/api/character/" + num1 + "," + num2 + "," + num3, {
         method: "GET"
     }).then((value) => {
         return value.json();
     }).then((value) => {
-        let listCharcter = document.getElementById("default-charcter");      
-         value.forEach(element => {
+        let listCharcter = document.getElementById("default-charcter");
+        value.forEach(element => {
             createImage(listCharcter, element);
-         });
+        });
     })
 }
 
@@ -35,35 +54,16 @@ function responsiveNav() {
     }
 }
 
-btnViewAll.addEventListener("click", function (event) {
-    event.preventDefault();
-    getListCharcter.classList.add('active');
-    getHome.classList.remove('active');
-    home.style.display = "none";
-    listAll.style.display = "";
-    viewAll();
-});
-
-getHome.addEventListener("click", function () {
-    event.preventDefault();
-    getHome.classList.add('active');
-    getListCharcter.classList.remove('active');
-    home.style.display = "";
-    listAll.style.display = "none";
-    details.classList.add("hideDiv");
-});
-
-getListCharcter.addEventListener("click", function () {
-    event.preventDefault();
+function viewAll() {
     getListCharcter.classList.add("active");
     getHome.classList.remove('active');
-    home.style.display = "none";
-    listAll.style.display = "";
+    listAll.classList.add("showDiv");
+    home.classList.add("hideDiv");
     details.classList.add("hideDiv");
-    viewAll();
-});
+    if (listAll.classList.contains("hideDiv")) listAll.classList.remove("hideDiv");
+    if (details.classList.contains("showDiv")) details.classList.remove("showDiv");
+    if (home.classList.contains("showDiv")) home.classList.remove("showDiv");
 
-function viewAll() {
     let listCharcter = document.getElementById("list-charcter");
     if (listCharcter.children.length == 0) {
         var nextItem = 1;
@@ -73,7 +73,7 @@ function viewAll() {
             }).then((valueNext) => {
                 return valueNext.json();
             }).then((valueNext) => {
-               
+
                 valueNext.results.forEach(element => {
                     createImage(listCharcter, element);
                 });
@@ -112,21 +112,26 @@ function getDetails(id) {
         origin.innerHTML = value.origin.name;
         species.innerHTML = value.species;
         details.classList.remove("hideDiv");
-        listAll.style.display = "none";
-        home.style.display="none";
+
+        if (listAll.classList.contains("showDiv")) listAll.classList.remove("showDiv");
+        if (home.classList.contains("showDiv")) home.classList.remove("showDiv");
+
+        listAll.classList.add("hideDiv");
+        home.classList.add("hideDiv");
     })
 }
 
-function createImage(listCharcter,element) {
-        let div = document.createElement("div");
-        div.className = "col-sm-4";
-        listCharcter.appendChild(div);
-        let charecterImg = document.createElement("img");
-        charecterImg.id = element.id;
-        charecterImg.className = "margin";
-        charecterImg.src = element.image;
-        let character = document.createElement("a");
-        character.addEventListener("click", function (e) { getDetails(e.target.id) });
-        character.append(charecterImg);
-        div.appendChild(character);
+function createImage(listCharcter, element) {
+    let div = document.createElement("div");
+    div.className = "col-sm-4";
+    listCharcter.appendChild(div);
+    let charecterImg = document.createElement("img");
+    charecterImg.id = element.id;
+    charecterImg.className = "margin";
+    charecterImg.classList.add("rounded");
+    charecterImg.src = element.image;
+    let character = document.createElement("a");
+    character.addEventListener("click", function (e) { getDetails(e.target.id) });
+    character.append(charecterImg);
+    div.appendChild(character);
 }

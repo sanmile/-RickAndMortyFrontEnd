@@ -19,7 +19,7 @@
     <link rel="shortcut icon" href="./smile.ico">
 </head>
 
-<body>
+<body class="backgroundDiv ">
     <div class="topnav" id="myTopnav">
         <a href="#home" class="active" id="get-home">Home</a>
         <a href="#list-charcter" id="get-list-charcter">Characters</a>
@@ -28,7 +28,7 @@
         </a>
     </div>
     <div class="container">
-        <div id="home" class="view">
+        <div id="home">
             <div class="row" id="default-charcter">
             </div>
             <div class="row">
@@ -42,32 +42,36 @@
         <div id="details" class="hideDiv">
             <div class="row margin">
                 <div class="media">
-                    <img id="imgDetail" class="mr-3">
-                    <div class="media-body text-details">
-                        <h5 class="mt-0">Name</h5>
-                        <p id=name></p>
-                        <div class="media">
-                            <div class="media-body">
-                                <h5 class="mt-0">Status</h5>
-                                <p id=status></p>
+                    <div class="col-6">
+                        <img id="imgDetail" class="mr-3">
+                    </div>
+                    <div class="col-6">
+                        <div class="media-body text-details">
+                            <h5 class="mt-0">Name</h5>
+                            <p id=name></p>
+                            <div class="media line">
+                                <div class="media-body">
+                                    <h5 class="mt-0">Status</h5>
+                                    <p id=status></p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="media">
-                            <div class="media-body">
-                                <h5 class="mt-0">Gender</h5>
-                                <p id=gender></p>
+                            <div class="media line">
+                                <div class="media-body">
+                                    <h5 class="mt-0">Gender</h5>
+                                    <p id=gender></p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="media">
-                            <div class="media-body">
-                                <h5 class="mt-0">Origin</h5>
-                                <p id=origin></p>
+                            <div class="media line">
+                                <div class="media-body">
+                                    <h5 class="mt-0">Origin</h5>
+                                    <p id=origin></p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="media">
-                            <div class="media-body">
-                                <h5 class="mt-0">Species</h5>
-                                <p id=species></p>
+                            <div class="media line">
+                                <div class="media-body">
+                                    <h5 class="mt-0">Species</h5>
+                                    <p id=species></p>
+                                </div>
                             </div>
                         </div>
                     </div>
